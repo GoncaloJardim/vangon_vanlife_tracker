@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://YOUR-RAILWAY-URL.railway.app/api'
+  apiUrl: 'https://vangonvanlifetracker.up.railway.app/api'
 };

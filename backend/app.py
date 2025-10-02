@@ -22,8 +22,8 @@ CORS(app, origins=[
         "http://127.0.0.1:*",
         "https://*.vercel.app",  # Vercel domains
         "https://*.netlify.app",  # Netlify domains
-        "https://vangon.vercel.app",  # Your specific domain
-        "https://vangon.netlify.app"  # Alternative domain
+        "https://vangon-vanlife-tracker.vercel.app",  # Your specific Vercel domain
+        "https://vangon-vanlife-tracker.netlify.app"  # Alternative domain
     ],
      allow_headers=["Content-Type", "Authorization"], 
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
