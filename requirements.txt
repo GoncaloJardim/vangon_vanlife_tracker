@@ -1,0 +1,4 @@
+# VAN'GON Backend Dependencies
+# This file points to the backend requirements.txt
+
+-r backend/requirements.txt
