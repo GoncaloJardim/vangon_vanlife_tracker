@@ -62,9 +62,18 @@ interface PlotlyFilters {
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private readonly baseUrl = environment.apiUrl;
+  private readonly baseUrl = this.getApiUrl();
 
   constructor(private readonly http: HttpClient) {}
+
+  private getApiUrl(): string {
+    // Check if we're in production (Vercel deployment)
+    if (window.location.hostname.includes('vercel.app') || window.location.hostname.includes('netlify.app')) {
+      return 'https://vangonvanlifetracker.up.railway.app/api';
+    }
+    // Use environment configuration for local development
+    return environment.apiUrl;
+  }
 
   getDashboardStats(): Observable<DashboardStats> {
     return this.http.get<DashboardStats>(`${this.baseUrl}/dashboard/stats`);
