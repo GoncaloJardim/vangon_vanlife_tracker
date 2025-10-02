@@ -1,4 +1,10 @@
 # VAN'GON Backend Dependencies
-# This file points to the backend requirements.txt
+# Compatible versions for Python 3.12
 
--r backend/requirements.txt
+Flask==3.0.0
+Flask-CORS==4.0.0
+pandas>=2.1.0
+numpy>=1.24.0
+geopy>=2.4.0
+plotly>=5.17.0
+gunicorn>=21.2.0
