@@ -1,0 +1,393 @@
+/* Waitlist Page Styles */
+.waitlist-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #ffffff;
+}
+
+/* Hero Section */
+.waitlist-hero {
+  padding: 120px 24px 80px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1) 0%, rgba(45, 212, 191, 0.05) 100%);
+  border-bottom: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+.waitlist-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.waitlist-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(45, 212, 191, 0.2);
+  border: 1px solid rgba(45, 212, 191, 0.4);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2dd4bf;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.waitlist-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.waitlist-hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main Waitlist Section */
+.waitlist-main {
+  padding: 80px 24px;
+}
+
+.waitlist-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.waitlist-content {
+  text-align: center;
+}
+
+.waitlist-header {
+  margin-bottom: 50px;
+}
+
+.waitlist-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.waitlist-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.waitlist-form {
+  margin-bottom: 60px;
+}
+
+.email-input-group {
+  display: flex;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  flex-wrap: wrap;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 320px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(45, 212, 191, 0.3);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: rgba(45, 212, 191, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
+}
+
+.join-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.join-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45, 212, 191, 0.4);
+}
+
+.join-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.join-button .btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.waitlist-note {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.success-message {
+  margin-top: 20px;
+  padding: 16px 24px;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 8px;
+  color: #22c55e;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Features Preview */
+.features-preview {
+  margin-bottom: 60px;
+}
+
+.features-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 30px;
+  background: rgba(15, 118, 110, 0.15);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  background: rgba(15, 118, 110, 0.25);
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 8px 25px rgba(45, 212, 191, 0.2);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: rgba(45, 212, 191, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2dd4bf;
+}
+
+.feature-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 40px;
+}
+
+.social-text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.social-button:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.social-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-linkedin {
+  background: rgba(0, 119, 181, 0.2);
+  border: 1px solid rgba(0, 119, 181, 0.4);
+  color: #0077b5;
+}
+
+.social-linkedin:hover {
+  background: rgba(0, 119, 181, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+}
+
+.social-instagram {
+  background: rgba(225, 48, 108, 0.2);
+  border: 1px solid rgba(225, 48, 108, 0.4);
+  color: #e1306c;
+}
+
+.social-instagram:hover {
+  background: rgba(225, 48, 108, 0.3);
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.3);
+}
+
+.social-github {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.social-github:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .waitlist-hero {
+    padding: 80px 16px 60px;
+  }
+  
+  .waitlist-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .waitlist-main {
+    padding: 60px 16px;
+  }
+  
+  .waitlist-title {
+    font-size: 2rem;
+  }
+  
+  .email-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .email-input {
+    min-width: auto;
+  }
+  
+  .join-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-button {
+    width: 200px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .waitlist-hero-title {
+    font-size: 2rem;
+  }
+  
+  .waitlist-hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .waitlist-title {
+    font-size: 1.8rem;
+  }
+  
+  .waitlist-subtitle {
+    font-size: 1rem;
+  }
+  
+  .features-title {
+    font-size: 1.6rem;
+  }
+}

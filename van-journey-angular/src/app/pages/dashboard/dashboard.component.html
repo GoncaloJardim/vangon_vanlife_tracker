@@ -1,0 +1,134 @@
+<section class="dashboard-shell">
+  <div class="dashboard-inner" *ngIf="!loading(); else loadingState">
+    <ng-container *ngIf="!error(); else errorState">
+      <header class="dashboard-hero">
+        <p class="dashboard-tag">Expedition Control Center</p>
+        <h1>Journey Dashboard</h1>
+        <p class="dashboard-subtitle">
+          Live insights drawn from Google Timeline to keep your adventure map accurate and inspiring.
+        </p>
+      </header>
+
+      <!-- Top KPIs -->
+      <section class="metric-grid" *ngIf="stats(); else emptyStats">
+        <article *ngFor="let card of metricCards()" class="metric-card">
+          <div class="metric-card-header">
+            <span>{{ card.label }}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" [innerHTML]="card.icon"></svg>
+          </div>
+          <p class="metric-primary">{{ card.primary }}</p>
+          <p class="metric-secondary">{{ card.secondary }}</p>
+        </article>
+      </section>
+
+      <!-- Map Filters Section -->
+      <section class="filters-card" *ngIf="stats(); else emptyStats">
+        <header>
+          <h2>Map Filters</h2>
+          <span>Data Lens</span>
+        </header>
+        <div class="filters-grid">
+          <label>
+            <span>Country</span>
+            <select [ngModel]="selectedCountry()" (ngModelChange)="selectedCountry.set($event)">
+              <option value="">All Countries</option>
+              <option *ngFor="let country of filterOptions()?.countries" [value]="country">{{ country }}</option>
+            </select>
+          </label>
+          <label>
+            <span>Transport</span>
+            <select [ngModel]="selectedTransportMode()" (ngModelChange)="selectedTransportMode.set($event)">
+              <option value="">All Modes</option>
+              <option *ngFor="let mode of filterOptions()?.transport_modes" [value]="mode">{{ activityLabels[mode] || mode.replace('_', ' ') }}</option>
+            </select>
+          </label>
+          <label>
+            <span>Start Date</span>
+            <input type="date" [ngModel]="startDate()" (ngModelChange)="startDate.set($event)" />
+          </label>
+          <label>
+            <span>End Date</span>
+            <input type="date" [ngModel]="endDate()" (ngModelChange)="endDate.set($event)" />
+          </label>
+        </div>
+      </section>
+
+      <!-- Expedition Map Section -->
+      <section class="map-card" *ngIf="stats(); else emptyStats">
+        <header>
+          <h2>Expedition Map</h2>
+          <span>Interactive Journey</span>
+        </header>
+        <div class="map-body">
+          <div *ngIf="mapLoading()" class="map-loading">
+            <span class="spinner"></span>
+            <p>Charting your path...</p>
+          </div>
+          <div #mapContainer class="leaflet-map" *ngIf="!mapLoading()"></div>
+          <div *ngIf="!mapLoading() && (!mapData() || mapData()!.length === 0)" class="map-placeholder">
+            <p>No map data available for the selected filters.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Details Section -->
+      <section class="detail-grid" *ngIf="stats(); else emptyStats">
+        <article class="detail-card">
+          <header>
+            <h2>Recent Camps &amp; Stops</h2>
+            <span>Chronology</span>
+          </header>
+          <div class="detail-body" *ngIf="recentStops().length; else noStops">
+            <div *ngFor="let stop of recentStops()" class="stop-row">
+              <div>
+                <p class="stop-location">{{ stop.name }}</p>
+                <p class="stop-date">{{ stop.start_time | date: 'mediumDate' }} → {{ stop.end_time | date: 'shortTime' }}</p>
+              </div>
+              <span class="stop-duration">{{ stop.duration_hours | number: '1.0-1' }}h</span>
+            </div>
+          </div>
+          <ng-template #noStops>
+            <p class="empty-message">No recent stops recorded.</p>
+          </ng-template>
+        </article>
+
+        <article class="detail-card">
+          <header>
+            <h2>Journey Breakdown</h2>
+            <span>Timeline</span>
+          </header>
+          <div class="detail-body">
+            <div *ngFor="let item of journeyStats()" class="journey-row">
+              <span>{{ item.label }}</span>
+              <span class="journey-value">{{ item.value }}</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </ng-container>
+  </div>
+</section>
+
+<ng-template #loadingState>
+  <section class="dashboard-shell">
+    <div class="loading-indicator">
+      <span class="spinner"></span>
+      Synchronizing with timeline data...
+    </div>
+  </section>
+</ng-template>
+
+<ng-template #emptyStats>
+  <section class="empty-state">
+    <p>No journey data available yet. Upload a Google Timeline export to get started.</p>
+  </section>
+</ng-template>
+
+<ng-template #errorState>
+  <section class="dashboard-shell">
+    <div class="loading-indicator error">
+      <span></span>
+      {{ error() }}
+    </div>
+  </section>
+</ng-template>
