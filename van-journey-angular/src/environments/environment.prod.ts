@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://vangonvanlifetracker.up.railway.app/api'
+  apiUrl: process.env['NG_APP_API_URL'] || 'https://vangonvanlifetracker.up.railway.app/api'
 };
