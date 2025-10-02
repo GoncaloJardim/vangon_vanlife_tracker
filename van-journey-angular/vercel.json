@@ -1,8 +1,0 @@
-{
-  "buildCommand": "npm run build --configuration=production",
-  "outputDirectory": "dist/van-journey-angular/browser",
-  "framework": "angular",
-  "env": {
-    "NG_APP_API_URL": "https://vangonvanlifetracker.up.railway.app/api"
-  }
-}
